@@ -1,26 +1,24 @@
-const statusForm = document.querySelector('#status-form');
-const urlInput = document.querySelector('#url-input');
-const statusResult = document.querySelector('#status-result');
+const form = document.getElementById('form');
+const urlInput = document.getElementById('url');
+const resultDiv = document.getElementById('result');
 
-statusForm.addEventListener('submit', e => {
-  e.preventDefault();
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
   const url = urlInput.value;
-  checkStatus(url);
-});
 
-const checkStatus = url => {
-  statusResult.innerHTML = 'Checking status...';
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', `${url}`);
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      statusResult.innerHTML = xhr.responseText;
-    } else {
-      statusResult.innerHTML = `${url} returned a status of ${xhr.status}`;
-    }
-  };
-  xhr.onerror = () => {
-    statusResult.innerHTML = `Error: ${xhr.statusText}`;
-  };
-  xhr.send();
-};
+  // Make a request to the server to check the website status
+  fetch(`/status?url=${url}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      }
+      throw new Error(`Request failed with status ${response.status}`);
+    })
+    .then((data) => {
+      resultDiv.innerHTML = `Status: ${data}`;
+    })
+    .catch((error) => {
+      console.error(error);
+      resultDiv.innerHTML = 'An error occurred while checking the website status.';
+    });
+});
