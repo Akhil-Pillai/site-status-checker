@@ -2,9 +2,9 @@
   "name": "site-status-checker",
   "version": "1.0.0",
   "description": "A simple web app to check the status of a website",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "Akhil",
   "license": "ISC",
