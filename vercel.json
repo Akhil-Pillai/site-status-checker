@@ -3,6 +3,10 @@
     {
       "src": "/api/status",
       "dest": "/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
     }
   ],
   "builds": [
