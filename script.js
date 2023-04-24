@@ -11,7 +11,7 @@ statusForm.addEventListener('submit', e => {
 const checkStatus = url => {
   statusResult.innerHTML = 'Checking status...';
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `http://localhost:3000/status?url=${url}`);
+  xhr.open('GET', `${url}`);
   xhr.onload = () => {
     if (xhr.status === 200) {
       statusResult.innerHTML = xhr.responseText;
