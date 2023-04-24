@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-app.get('/status', async (req, res) => {
+app.get('/api/status', async (req, res) => {
   try {
     const url = req.query.url;
     const response = await fetch(url);
