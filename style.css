@@ -1,24 +1,45 @@
-const statusForm = document.querySelector('#status-form');
-const urlInput = document.querySelector('#url-input');
-const statusResult = document.querySelector('#status-result');
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-statusForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const url = urlInput.value;
-  checkStatus(url);
-});
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
 
-const checkStatus = url => {
-  statusResult.innerHTML = 'Checking status...';
-  fetch(url)
-    .then(response => {
-      if (response.ok) {
-        statusResult.innerHTML = `${url} is up and running!`;
-      } else {
-        statusResult.innerHTML = `${url} returned a status of ${response.status}`;
-      }
-    })
-    .catch(error => {
-      statusResult.innerHTML = `Error: ${error.message}`;
-    });
-};
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#error {
+  color: red;
+}
