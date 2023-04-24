@@ -7,7 +7,7 @@ form.addEventListener('submit', (event) => {
   const url = urlInput.value;
 
   // Make a request to the server to check the website status
-  fetch(`/status?url=${url}`)
+  fetch(`/api/status?url=${url}`)
     .then((response) => {
       if (response.ok) {
         return response.text();
