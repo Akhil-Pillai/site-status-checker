@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
   }
   try {
     const statusCode = await checkStatus(url);
-    res.status(200).send({ status: statusCode });
+    res.status(200).json({ status: statusCode });
   } catch (err) {
     res.status(500).send('Error checking status');
   }
