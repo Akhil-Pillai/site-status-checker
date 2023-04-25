@@ -7,9 +7,6 @@
     {
       "src": "public/**",
       "use": "@vercel/static",
-      "mime": {
-        "text/css": ["css"]
-      }
     }
   ],
   "routes": [
@@ -17,4 +14,5 @@
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
+
 
