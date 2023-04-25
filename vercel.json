@@ -1,18 +1,8 @@
 {
   "routes": [
     {
-      "src": "/api/status",
-      "dest": "/api/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.js"
-    }
-  ],
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
+      "src": "/api/.*",
+      "dest": "./api/checkstatus.js"
     }
   ]
 }
