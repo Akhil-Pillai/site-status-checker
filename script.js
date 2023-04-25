@@ -1,8 +1,8 @@
-const checkButton = document.getElementById('checkButton');
-const urlInput = document.getElementById('urlInput');
-const statusResult = document.getElementById('statusResult');
+const checkStatusBtn = document.getElementById('check-status-btn');
+const urlInput = document.getElementById('site-url');
+const statusResult = document.getElementById('status-message');
 
-checkButton.addEventListener('click', () => {
+checkStatusBtn.addEventListener('click', () => {
   const url = urlInput.value;
   if (url === '') {
     return;
