@@ -1,14 +1,20 @@
-const form = document.querySelector("#site-status-form");
+const checkButton = document.getElementById('checkButton');
+const urlInput = document.getElementById('urlInput');
+const statusResult = document.getElementById('statusResult');
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const url = document.querySelector("#site-url").value;
-  const res = await fetch("/api/checkstatus?url=" + url);
-  const data = await res.json();
-  const statusMessage = document.querySelector("#status-message");
-  if (data.error) {
-    statusMessage.innerHTML = `<p class="error">${data.error}</p>`;
-  } else {
-    statusMessage.innerHTML = `<p>${data.status}</p>`;
+checkButton.addEventListener('click', () => {
+  const url = urlInput.value;
+  if (url === '') {
+    return;
   }
+  fetch(`/api/checkstatus?url=${url}`)
+    .then(response => response.json())
+    .then(data => {
+      const statusText = data.status ? 'up' : 'down';
+      const message = `Site is ${statusText}, response time: ${data.responseTime}ms`;
+      statusResult.textContent = message;
+      statusResult.classList.add(data.status ? 'is-success' : 'is-danger');
+      statusResult.classList.remove('is-hidden');
+    })
+    .catch(error => console.error(error));
 });
