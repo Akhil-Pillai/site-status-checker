@@ -1,6 +1,20 @@
 {
+  "builds": [
+    {
+      "src": "checkstatus.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static",
+      "mime": {
+        "text/css": ["css"]
+      }
+    }
+  ],
   "routes": [
     { "src": "/api/checkstatus", "dest": "/api/checkstatus.js" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
+
