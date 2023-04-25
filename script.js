@@ -7,6 +7,7 @@ checkStatusBtn.addEventListener('click', () => {
   if (url === '') {
     return;
   }
+  console.log(`/api/checkstatus?url=${url}`);
   fetch(`/api/checkstatus?url=${url}`)
     .then(response => response.json())
     .then(data => {
