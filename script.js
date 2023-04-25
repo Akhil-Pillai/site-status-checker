@@ -8,14 +8,14 @@ checkStatusBtn.addEventListener('click', () => {
     return;
   }
   console.log(`/api/checkstatus?url=${url}`);
-  fetch(`/api/checkstatus?url=${url}`)
-    .then(response => response.json())
-    .then(data => {
-      const statusText = data.status ? 'up' : 'down';
-      const message = `Site is ${statusText}, response time: ${data.responseTime}ms`;
-      statusResult.textContent = message;
-      statusResult.classList.add(data.status ? 'is-success' : 'is-danger');
-      statusResult.classList.remove('is-hidden');
-    })
-    .catch(error => console.error(error));
-});
+//   fetch(`/api/checkstatus?url=${url}`)
+//     .then(response => response.json())
+//     .then(data => {
+//       const statusText = data.status ? 'up' : 'down';
+//       const message = `Site is ${statusText}, response time: ${data.responseTime}ms`;
+//       statusResult.textContent = message;
+//       statusResult.classList.add(data.status ? 'is-success' : 'is-danger');
+//       statusResult.classList.remove('is-hidden');
+//     })
+//     .catch(error => console.error(error));
+// });
