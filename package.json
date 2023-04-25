@@ -1,17 +1,20 @@
 {
   "name": "site-status-checker",
   "version": "1.0.0",
-  "description": "A simple web app to check the status of a website",
-  "main": "index.js",
+  "description": "",
+  "main": "checkstatus.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node checkstatus.js",
+    "dev": "nodemon checkstatus.js"
   },
-  "author": "Akhil",
-  "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "request": "^2.88.2",
+    "express": "^4.17.1",
     "node-fetch": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
