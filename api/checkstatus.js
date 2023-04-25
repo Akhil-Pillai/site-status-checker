@@ -12,6 +12,7 @@ const checkStatus = (url) => {
 
 module.exports = async (req, res) => {
   const url = req.query.url;
+  console.log('URL:', url);
   if (!url) {
     return res.status(400).send('Missing URL parameter');
   }
